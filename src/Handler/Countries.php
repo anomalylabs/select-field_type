@@ -21,14 +21,16 @@ class Countries
      */
     public function handle(SelectFieldType $fieldType, Repository $config)
     {
+        $keys = array_keys($config->get('streams::countries.available'));
+
         $fieldType->setOptions(
             array_combine(
-                array_keys($config->get('streams::countries.available')),
+                $keys,
                 array_map(
-                    function ($country) {
-                        return $country['name'];
+                    function ($key) {
+                        return trans("streams::country.{$key}");
                     },
-                    $config->get('streams::countries.available')
+                    $keys
                 )
             )
         );
