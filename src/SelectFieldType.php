@@ -89,7 +89,7 @@ class SelectFieldType extends FieldType
     public function getOptions()
     {
         if ($this->options === null) {
-            $this->dispatch(new BuildOptions($this));
+            $this->dispatchSync(new BuildOptions($this));
         }
 
         $topOptions = array_get($this->getConfig(), 'top_options');

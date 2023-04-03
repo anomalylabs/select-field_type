@@ -27,7 +27,7 @@ class Options
         $options = array_get($fieldType->getConfig(), 'options', []);
 
         if (is_string($options)) {
-            $options = $this->dispatch(new ParseOptions($fieldType, $options));
+            $options = $this->dispatchSync(new ParseOptions($fieldType, $options));
         }
 
         if ($options instanceof \Closure) {
