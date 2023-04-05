@@ -2,13 +2,9 @@
 
 use Anomaly\SelectFieldType\Command\ParseOptions;
 use Illuminate\Contracts\Container\Container;
-use Illuminate\Foundation\Bus\DispatchesJobs;
 
 class SelectFieldTypeOptions
 {
-
-    use DispatchesJobs;
-
     /**
      * Handle the select options.
      *
@@ -19,7 +15,7 @@ class SelectFieldTypeOptions
         $options = array_get($fieldType->getConfig(), 'options', []);
 
         if (is_string($options)) {
-            $options = $this->dispatchSync(new ParseOptions($fieldType, $options));
+            $options = dispatch_sync(new ParseOptions($fieldType, $options));
         }
 
         if ($options instanceof \Closure) {
