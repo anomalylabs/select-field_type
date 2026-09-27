@@ -15,7 +15,7 @@
                                 name="{{ field_type.input_name }}"
                                 {{ value == field_type.key ? 'checked' }}>
 
-                        {{ trans(option)|raw }}
+                        {{ trans(option) }}
 
                     </label>
                 {% endfor %}
@@ -28,7 +28,7 @@
                             name="{{ field_type.input_name }}"
                             {{ value == field_type.key ? 'checked' }}>
 
-                    {{ trans(option)|raw }}
+                    {{ trans(option) }}
 
                 </label>
             {% endif %}
